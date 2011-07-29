@@ -40,7 +40,6 @@ class GyaimController < IMKInputController
   # 入力システムがアクティブになると呼ばれる
   #
   def activateServer(sender)
-    showWindow
     @ws.start
   end
 
@@ -156,6 +155,10 @@ class GyaimController < IMKInputController
       searchAndShowCands
       @ws.searchmode = 0
       handled = true
+    end
+
+    if !converting then
+      hideWindow
     end
 
     return handled
